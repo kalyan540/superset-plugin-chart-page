@@ -16,29 +16,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import {
-  QueryFormData,
-  supersetTheme,
-  TimeseriesDataRecord,
-} from '@superset-ui/core';
-
-export interface SupersetPluginChartPageStylesProps {
-  height: number;
-  width: number;
-  headerFontSize: keyof typeof supersetTheme.typography.sizes;
-  boldText: boolean;
-}
-
-interface SupersetPluginChartPageCustomizeProps {
-  headerText: string;
-}
-
-export type SupersetPluginChartPageQueryFormData = QueryFormData &
-  SupersetPluginChartPageStylesProps &
-  SupersetPluginChartPageCustomizeProps;
-
-export type SupersetPluginChartPageProps = SupersetPluginChartPageStylesProps &
-  SupersetPluginChartPageCustomizeProps & {
-    data: TimeseriesDataRecord[];
-    datasource: string;// add typing here for the props you pass in from transformProps.ts!
-  };
+// eslint-disable-next-line import/prefer-default-export
+export { default as SupersetPluginChartPage } from './plugin';
+/**
+ * Note: this file exports the default export from SupersetPluginChartPage.tsx.
+ * If you want to export multiple visualization modules, you will need to
+ * either add additional plugin folders (similar in structure to ./plugin)
+ * OR export multiple instances of `ChartPlugin` extensions in ./plugin/index.ts
+ * which in turn load exports from SupersetPluginChartPage.tsx
+ */

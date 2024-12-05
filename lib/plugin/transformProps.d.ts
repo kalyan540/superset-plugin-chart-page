@@ -16,29 +16,13 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import {
-  QueryFormData,
-  supersetTheme,
-  TimeseriesDataRecord,
-} from '@superset-ui/core';
-
-export interface SupersetPluginChartPageStylesProps {
-  height: number;
-  width: number;
-  headerFontSize: keyof typeof supersetTheme.typography.sizes;
-  boldText: boolean;
-}
-
-interface SupersetPluginChartPageCustomizeProps {
-  headerText: string;
-}
-
-export type SupersetPluginChartPageQueryFormData = QueryFormData &
-  SupersetPluginChartPageStylesProps &
-  SupersetPluginChartPageCustomizeProps;
-
-export type SupersetPluginChartPageProps = SupersetPluginChartPageStylesProps &
-  SupersetPluginChartPageCustomizeProps & {
+import { ChartProps, TimeseriesDataRecord } from '@superset-ui/core';
+export default function transformProps(chartProps: ChartProps): {
+    width: number;
+    height: number;
     data: TimeseriesDataRecord[];
-    datasource: string;// add typing here for the props you pass in from transformProps.ts!
-  };
+    boldText: any;
+    headerFontSize: any;
+    headerText: any;
+};
+//# sourceMappingURL=transformProps.d.ts.map

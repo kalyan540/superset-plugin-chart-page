@@ -16,9 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { ChartProps, TimeseriesDataRecord } from '@superset-ui/core';
 
-export default function transformProps(chartProps: ChartProps) {
+export default function transformProps(chartProps) {
   /**
    * This function is called after a successful response has been
    * received from the chart data endpoint, and is used to transform
@@ -48,12 +47,20 @@ export default function transformProps(chartProps: ChartProps) {
    * function during development with hot reloading, changes won't
    * be seen until restarting the development server.
    */
-  const { width, height, formData, queriesData } = chartProps;
-  const { boldText, headerFontSize, headerText } = formData;
-  const data = queriesData[0].data as TimeseriesDataRecord[];
-  const datasource = formData.datasource;
+  var {
+    width,
+    height,
+    formData,
+    queriesData
+  } = chartProps;
+  var {
+    boldText,
+    headerFontSize,
+    headerText
+  } = formData;
+  var data = queriesData[0].data;
+  var datasource = formData.datasource;
   console.log('formData via TransformProps.ts', formData);
-
   return {
     width,
     height,
@@ -62,6 +69,6 @@ export default function transformProps(chartProps: ChartProps) {
     boldText,
     datasource,
     headerFontSize,
-    headerText,
+    headerText
   };
 }
